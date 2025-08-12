@@ -134,7 +134,7 @@ a:hover {
     background-color: var(--primary-purple);
     border-color: var(--primary-purple);
     color: var(--white);
-    font-weight: 700; /* use bold for stronger CTA */
+    font-weight: 600; /* use bold for stronger CTA */
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
     padding: 10px 20px;
@@ -351,6 +351,10 @@ nav.sidebar-nav {
 }
 .sidebar .profile-info-wrapper .profile-desc h6{
     color: #000;
+    white-space: nowrap;
+    width: 105px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .sidebar .profile-info-wrapper, .sidebar .profile-info{
     display: flex;
@@ -535,6 +539,9 @@ nav.sidebar-nav {
     .admin-main{
         padding: 20px;
     }
+    .four-zero-four-thumb img{
+        max-width: 300px;
+    }
     
 }
 
@@ -626,5 +633,275 @@ nav.sidebar-nav {
     
     
 }
+
+/* Prevent body scroll when sidebar is open on mobile */
+@media (max-width: 991.98px) {
+    body.sidebar-overlay {
+        overflow: hidden;
+    }
+}
+
+/* ============ Generate API Panel Slide  ============ */
+
+/* API Panel Overlay */
+.api-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.api-panel-overlay.api-panel-overlay-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.api-panel.gen-api-penel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+}
+
+.api-panel.api-panel-open {
+    right: 0;
+}
+
+/* API Panel Header */
+.gen-api-penel .api-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-grey);
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.gen-api-penel .api-panel-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--black-text);
+    margin: 0;
+}
+
+.gen-api-penel .api-panel-close {
+    background: var(--white);
+    border: 0;
+    color: var(--grey-text);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.gen-api-penel .api-panel-close:hover {
+    background: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.gen-api-penel .api-panel-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+.gen-api-penel .api-panel-body {
+    padding: 24px;
+}
+
+
+.gen-api-penel .api-form .form-group {
+    margin-bottom: 20px;
+}
+
+.gen-api-penel .api-form .form-label {
+    display: block;
+    font-weight: 600;
+    color: var(--black-text);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.gen-api-penel .api-form .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #CED1DF;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: var(--white);
+    color: var(--black-text);
+}
+
+.gen-api-penel .api-form .form-control:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(117, 79, 199, 0.1);
+}
+
+.gen-api-penel .api-form .form-control::placeholder {
+    color: var(--placeholder-grey);
+}
+.gen-api-penel .api-panel-body{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 77px);
+    overflow: auto;
+}
+.gen-api-penel .api-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.gen-api-penel .form-input-wrapper{
+    max-height: calc(100vh - 178px);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+
+/* API Panel Actions */
+.gen-api-penel .api-panel-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 20px;
+    position: sticky;
+    bottom: 0px;
+    left: 0;
+    background-color: #fff;
+}
+
+.gen-api-penel .api-panel-actions .btn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gen-api-penel .api-panel-actions .btn-primary {
+    background: var(--primary-purple);
+    color: var(--white);
+}
+
+.gen-api-penel .api-panel-actions .btn-primary:hover {
+    background: var(--primary-purple-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(117, 79, 199, 0.3);
+}
+
+.gen-api-penel .api-panel-actions .btn-secondary {
+    background: var(--white);
+    color: var(--grey-text);
+    border: 1px solid var(--primary-purple);
+}
+
+.gen-api-penel .api-panel-actions .btn-secondary:hover {
+    background: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: var(--white);
+}
+
+/* Body scroll lock when panel is open */
+body.api-panel-open {
+    overflow: hidden;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1580px) {
+    .gen-api-penel .api-panel-actions .btn, .gen-api-penel .api-form .form-control{
+        padding: 8px 10px;
+    }
+    .gen-api-penel .api-panel-title{
+        font-size: 24px;
+    }
+
+}
+
+
+@media (max-width: 575.98px) {
+    .gen-api-penel .api-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .gen-api-penel .api-panel-header {
+        padding: 16px 20px;
+    }
+    
+    .gen-api-penel .api-panel-body {
+        padding: 20px;
+    }
+    
+    .gen-api-penel .api-panel-title {
+        font-size: 18px;
+    }
+    
+
+    
+    
+    .gen-api-penel .api-panel-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .gen-api-penel .api-panel {
+        width: 90%;
+        right: -90%;
+    }
+}
+
+/* Animation for panel content */
+.api-panel-open .api-panel-body {
+    animation: slideInRight 0.4s ease 0.1s both;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
 
 
