@@ -40,12 +40,12 @@
 :root {
     --primary-purple: #754fc7;
     --primary-purple-dark: #754fc7;
-    --primary-purple-light: #8A52E9;
+    --primary-purple-light: #8a52e9;
     --dark-text: #121212;
-    --black-text: #0C0C0C;
-    --grey-text: #6A7893;
-    --border-grey: #EDEEF2;
-    --light-grey-bg: #F8F8FC;
+    --black-text: #0c0c0c;
+    --grey-text: #6a7893;
+    --border-grey: #edeeef;
+    --light-grey-bg: #f8f8fc;
     --placeholder-grey: #6c757d;
     --white: #FFFFFF;
     --shadow-light: rgba(0, 0, 0, 0.1);
@@ -894,17 +894,6 @@ body.api-panel-open {
     animation: slideInRight 0.4s ease 0.1s both;
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 /* ============ Manage API Keys Table ============ */
 
 /* Table Styling */
@@ -1285,6 +1274,8 @@ body.api-panel-open {
     padding-bottom: 0px;
   }
 
+
+
 }
 /* Responsive Design */
 @media (max-width: 575.98px) {
@@ -1321,9 +1312,549 @@ body.api-panel-open {
     }
 }
 
-/* Animation for roles panel content */
 .roles-panel-open .roles-panel-body {
     animation: slideInRight 0.4s ease 0.1s both;
+}
+
+/* ============ Manage Model Config Styles ============ */
+
+.manage-modal-config .routing-configs {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 15px;
+
+}
+
+.manage-modal-config .routing-configs-tobar{
+  border-bottom: 1px solid #EDEEF2;
+}
+
+
+.manage-modal-config .config-item {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--white);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.manage-modal-config .config-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-purple);
+}
+
+.manage-modal-config .config-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    cursor: default;
+    background: var(--white);
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #EDEEF2;
+}
+
+.manage-modal-config .config-header:hover {
+    background: var(--light-bg);
+}
+
+.manage-modal-config .config-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-direction: row-reverse;
+}
+
+.manage-modal-config .config-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+
+.manage-modal-config .expand-icon {
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: none;
+    line-height: 17px;
+    border: 1px solid var(--primary-purple);
+}
+
+.manage-modal-config .expand-icon svg{
+    color: var(--primary-purple);
+}
+
+
+.manage-modal-config .config-item.expanded .expand-icon {
+	transform: none;
+}
+
+
+.manage-modal-config .config-title .expand-icon {
+	margin-left: 6px;
+}
+
+.manage-modal-config .config-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.manage-modal-config .action-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.manage-modal-config .action-btn svg{
+    color: var(--primary-purple);
+}
+
+.manage-modal-config .action-btn.delete svg{
+    color: #E83434;
+}
+
+
+.manage-modal-config .action-btn:hover {
+    background: var(--light-bg);
+    color: var(--text-dark);
+}
+
+.manage-modal-config .model-access-btn {
+    background: #fff;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.manage-modal-config .model-access-btn:hover {
+    background: var(--primary-purple-light);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.manage-modal-config .config-details {
+    padding: 0;
+    background: var(--light-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+.manage-modal-config .routing-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 50px;
+    border-bottom: 1px solid #EDEEF2;
+}
+
+
+
+.manage-modal-config .rule-label {
+    font-weight: 500;
+    color: var(--text-dark);
+    min-width: 150px;
+}
+
+.manage-modal-config .rule-endpoint {
+    color: var(--text-muted);
+    font-family: monospace;
+    background: var(--white);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* ============ Model Access Panel Styles ============ */
+
+.model-access-section {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    height: fit-content;
+    position: sticky;
+    top: 24px;
+}
+
+.model-access-section .model-access-header {
+    padding: 20px 15px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--white);
+}
+
+.model-access-section .model-access-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+
+
+.model-access-section .model-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.model-access-section .model-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.model-access-section .add-key-btn {
+    background: var(--primary-purple);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.model-access-section .add-key-btn:hover {
+    background: var(--primary-purple-light);
+    transform: translateY(-1px);
+}
+
+/* Access Keys Table */
+.model-access-section .access-keys-table {
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.model-access-section .access-keys-table .table {
+    margin: 0;
+    font-size: 14px;
+}
+
+.model-access-section .access-keys-table th {
+    background: var(--light-bg);
+    border-top: 1px solid #EDEEF2;
+    border-bottom: 1px solid #EDEEF2;
+    padding: 10px 16px;
+    font-weight: 600;
+    color: #46536E;
+    font-size: 14px;
+}
+
+.model-access-section .access-keys-table td {
+    padding: 10px 16px;
+     border-bottom: 1px solid #EDEEF2;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.model-access-section .access-keys-table tr:last-child td {
+    border-bottom: none;
+}
+
+.model-access-section .access-keys-table .add-key-name{
+    align-items: center;
+    display: flex;
+    font-size: 16px;
+}
+
+.model-access-section .access-keys-table .add-key-name .add-key-count{
+    align-items: center;
+    display: flex;
+    color: var(--primary-purple);
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-weight: 600;
+    margin-left: 10px;
+    font-size: 13px;
+    background-color: #ebe5f7;
+}
+
+.model-access-section .access-keys-table .add-key-name{
+  font-weight: 700;
+}
+
+
+
+
+.model-access-section .access-key-masked {
+    font-family: monospace;
+    color: var(--text-muted);
+    background: var(--light-bg);
+    padding: 4px 0px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-size: 12px;
+}
+
+.model-access-section .access-key-visible {
+    font-family: monospace;
+    color: var(--text-dark);
+    background: var(--white);
+    padding: 4px 0px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    word-break: break-all;
+    font-size: 12px;
+}
+
+.model-access-section .key-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.model-access-section .key-actions .action-btn {
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.model-access-section .key-actions .action-btn.active {
+    background: var(--primary-purple);
+    color: var(--white);
+}
+
+.model-access-section .key-actions .action-btn.active svg {
+  color: #fff;
+}
+
+
+.model-access-section .config-item.selected {
+    border-color: var(--primary-purple);
+}
+
+.model-access-section .config-item.selected .config-header {
+    background: rgba(117, 79, 199, 0.05);
+}
+
+
+@media (max-width: 991.98px) {
+    .model-access-section {
+        position: static;
+        margin-top: 24px;
+    }
+    
+}
+
+@media (max-width: 767.98px) {
+    .model-access-section .model-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .model-access-section .add-key-btn {
+        align-self: flex-end;
+    }
+    
+    .model-access-section .access-keys-table .table {
+        font-size: 12px;
+    }
+    
+    .model-access-section .access-keys-table th,
+    .model-access-section .access-keys-table td {
+        padding: 8px 12px;
+    }
+}
+
+
+@media (max-width: 991.98px) {
+    body.model-access-overlay {
+        overflow: hidden;
+    }
+}
+
+/* ============ Saved Configurations Slide Panel ============ */
+
+.saved-config-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.45);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.25s ease;
+	z-index: 1040;
+}
+
+.saved-config-overlay.saved-config-overlay-active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.saved-config-panel {
+	position: fixed;
+	top: 0;
+	right: -480px;
+	width: 480px;
+	height: 100vh;
+	background: var(--white);
+	box-shadow: -6px 0 24px rgba(16, 24, 40, 0.12);
+	border-left: 1px solid var(--border-color);
+	transition: right 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+	z-index: 1050;
+	display: flex;
+	flex-direction: column;
+}
+
+.saved-config-panel.saved-config-open {
+	right: 0;
+}
+
+.saved-config-panel .saved-config-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 20px 10px;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.saved-config-panel .saved-config-title {
+	font-size: 20px;
+	font-weight: 700;
+	color: var(--text-dark);
+	margin: 0;
+}
+
+.saved-config-panel .saved-config-close {
+	background: none;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	padding: 6px;
+	cursor: pointer;
+	color: var(--text-muted);
+	transition: all 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.saved-config-panel .saved-config-close:hover {
+	background: var(--light-bg);
+	color: var(--text-dark);
+}
+
+.saved-config-panel .saved-config-body {
+	margin: 0px 16px 24px 16px;
+	overflow-y: auto;
+	flex: 1 1 auto;
+}
+.saved-config-main span {
+color: var(--black-text);
+font-weight: 700;
+}
+.saved-config-panel .saved-config-main {
+	background: #efe7ff;
+	border: 1px solid var(--primary-purple);
+	color: var(--primary-purple);
+	font-weight: 600;
+	padding: 12px 14px;
+    font-size: 20px;
+	border-radius: 15px 15px 0 0;
+	margin: 0;
+}
+.saved-config-panel .saved-config-rules{
+border: 1px solid #CED1DF;
+border-radius: 0 0 15px 15px;
+}
+
+.saved-config-panel .saved-rule {
+	background: var(--white);
+	border-radius: 0px 16px 16px;
+	padding: 0px 16px 10px;
+	margin: 0;
+    border-top: 0;
+    color: #46536E;
+}
+
+.saved-config-panel .saved-rule:not(:last-child){
+    border-bottom: 1px solid #CED1DF;
+    border-radius: 0;
+}
+
+.saved-config-panel .saved-rule + .saved-rule {
+	margin-top: 16px;
+}
+
+
+
+.saved-config-panel .saved-rule-sub {
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--grey-text);
+	margin-bottom: 8px;
+}
+
+.saved-config-panel .saved-rule-label {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--black-text);
+	margin-top: 8px;
+	margin-bottom: 4px;
+}
+
+.saved-config-panel .saved-rule-conditions {
+	white-space: pre-line;
+	color: #46536E;
+	font-size: 16px;
+}
+
+.saved-config-panel .saved-rule-endpoint {
+	color: var(--text-dark);
+	font-size: 16px;
+	word-break: break-all;
+	text-decoration: none;
+}
+@media (max-width: 1580px) {
+    .saved-config-panel .saved-config-main, .saved-config-panel .saved-rule-title{
+        font-size: 18px;
+    }
+    .saved-config-panel .saved-rule-conditions{
+font-size: 14px;
+    }
+
+    .manage-modal-config .action-btn{
+        padding: 5px;
+      }
+
+}
+
+@media (max-width: 991.98px) {
+	body.saved-config-no-scroll {
+		overflow: hidden;
+	}
+	.saved-config-panel {
+		width: 100%;
+		right: -100%;
+	}
 }
 
 
