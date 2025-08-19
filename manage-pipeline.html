@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nex ML Studio - Home</title>
+  <title>Manage pipeline</title>
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/custom.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,7 +163,15 @@
               <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <h1 class="h3 h3-md fw-bold mb-2">Manage API Keys</h1>
+          <h1 class="h3 h3-md fw-bold mb-2">Manage Pipeline</h1>
+          <ul class="nav manager-pipeline-tab">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pipeline Cleanup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Active</a>
+            </li>
+          </ul>
         </div>
 
         <!-- Admin Permissions -->
@@ -171,98 +179,26 @@
           <div class="card-body p-xxl-4 p-3">
             <!-- API Keys Table -->
             <div class="table-responsive">
-              <table class="common-table table table-hover">
+              <table class="common-table table manage-pipeline-table table-hover">
                 <thead>
                   <tr>
                     <th>Username</th>
-                    <th>Email</th>
-                    <th>API Key</th>
-                    <th>Expiry (Days)</th>
-                    <th>Expired</th>
-                    <th>Roles</th>
+                    <th>Pipeline ID</th>
+                    <th>Deleted Date</th>
+                    <th>Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>prakash</td>
-                    <td>prakash@teaminnovatics.com</td>
-                    <td>
-                      <span class="api-key-masked">XXXXXXXXXXXXX</span>
-                      <div class="api-key-actions">
-                        <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </button>
-                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                    <td>10/27/2025</td>
-                    <td>No</td>
-                    <td>Contributor</td>
-                    <td>
-                      <button class="btn btn-primary btn-sm manage-roles-btn" data-username="prakash" data-email="prakash@teaminnovatics.com">Manage Roles</button>
-                      <button class="btn btn-danger btn-sm ms-1">Delete 
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.0835 4.14175L7.26683 3.05008C7.40016 2.25841 7.50016 1.66675 8.9085 1.66675H11.0918C12.5002 1.66675 12.6085 2.29175 12.7335 3.05841L12.9168 4.14175" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M8.6084 13.75H11.3834" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.9165 10.4167H12.0832" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>aakashjain</td>
-                    <td>akash@teaminnovatics.com</td>
                     <td>
                       <span class="api-key-visible">5bbf5650-6e60-4571-b5db-4dee65d90193</span>
-                      <div class="api-key-actions">
-                        <button class="btn btn-sm btn-link toggle-key active" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.24 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </button>
-                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </button>
-                      </div>
                     </td>
                     <td>10/27/2025</td>
-                    <td>No</td>
-                    <td>Contributor</td>
+                    <td><span class="active">Active</span></td>
+
                     <td>
-                      <button class="btn btn-primary btn-sm manage-roles-btn" data-username="aakashjain" data-email="akash@teaminnovatics.com">Manage Roles</button>
-                      <button class="btn btn-danger btn-sm ms-1">
-                        Delete 
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.0835 4.14175L7.26683 3.05008C7.40016 2.25841 7.50016 1.66675 8.9085 1.66675H11.0918C12.5002 1.66675 12.6085 2.29175 12.7335 3.05841L12.9168 4.14175" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M8.6084 13.75H11.3834" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.9165 10.4167H12.0832" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>brij</td>
-                    <td>brij@teaminnovatics.com</td>
-                    <td>
-                      <span class="api-key-masked">XXXXXXXXXXXXX</span>
                       <div class="api-key-actions">
                         <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -278,25 +214,68 @@
                         </button>
                       </div>
                     </td>
-                    <td>10/27/2025</td>
-                    <td>No</td>
-                    <td>Contributor</td>
+                    
+                    
+                  </tr>
+                  <tr>
+                    <td>prakash</td>
                     <td>
-                      <button class="btn btn-primary btn-sm manage-roles-btn" data-username="brij" data-email="brij@teaminnovatics.com">Manage Roles</button>
-                      <button class="btn btn-danger btn-sm ms-1">Delete 
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.0835 4.14175L7.26683 3.05008C7.40016 2.25841 7.50016 1.66675 8.9085 1.66675H11.0918C12.5002 1.66675 12.6085 2.29175 12.7335 3.05841L12.9168 4.14175" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M8.6084 13.75H11.3834" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7.9165 10.4167H12.0832" stroke="#E83434" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-                      </button>
+                      <span class="api-key-visible">5bbf5650-6e60-4571-b5db-4dee65d90193</span>
                     </td>
+                    <td>10/27/2025</td>
+                    <td><span class="active">Active</span></td>
+
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                    
+                    
+                  </tr>
+                  <tr>
+                    <td>prakash</td>
+                    <td>
+                      <span class="api-key-visible">5bbf5650-6e60-4571-b5db-4dee65d90193</span>
+                    </td>
+                    <td>10/27/2025</td>
+                    <td><span class="active">Active</span></td>
+
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                    
+                    
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            
           </div>
         </section>
 

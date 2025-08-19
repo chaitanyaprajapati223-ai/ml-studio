@@ -143,6 +143,7 @@ a:hover {
     cursor: pointer;
     border: none;
     outline: none;
+    white-space: nowrap;
     box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
 }
 
@@ -152,6 +153,19 @@ a:hover {
     color: var(--white);
     box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
 }
+
+.common-btn.white-btn{
+    background: #fff;
+    color: var(--primary-purple);
+    border: 1px solid var(--primary-purple);
+}
+
+.common-btn.white-btn:hover {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: var(--white);
+}
+
 
 /* Custom Form Styling */
 .form-control-custom {
@@ -897,13 +911,13 @@ body.api-panel-open {
 /* ============ Manage API Keys Table ============ */
 
 /* Table Styling */
-.manage-api-keys-form.table {
+.common-table.table {
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
 }
 
-.manage-api-keys-form.table thead th {
+.common-table.table thead th {
     border: none;
     padding: 8px 10px;
     font-weight: 600;
@@ -913,7 +927,7 @@ body.api-panel-open {
     border-bottom: 1px solid var(--border-grey);
 }
 
-.manage-api-keys-form.table tbody td {
+.common-table.table tbody td {
     padding: 8px 10px;
     border: none;
     border-bottom: 1px solid var(--border-grey);
@@ -921,12 +935,12 @@ body.api-panel-open {
     white-space: nowrap;
 }
 
-.manage-api-keys-form tbody tr:hover {
+.common-table.table tbody tr:hover {
     background: var(--light-grey-bg);
 }
 
 /* API Key Styling */
-.manage-api-keys-form .api-key-masked {
+.common-table.table .api-key-masked {
     font-family: monospace;
     color: var(--grey-text);
     letter-spacing: 2px;
@@ -934,7 +948,7 @@ body.api-panel-open {
     min-width: 280px;
 }
 
-.manage-api-keys-form .api-key-visible {
+.common-table.table .api-key-visible {
     font-family: monospace;
     color: var(--black-text);
     background: var(--light-grey-bg);
@@ -945,29 +959,29 @@ body.api-panel-open {
     display: inline-flex;
 }
 
-.manage-api-keys-form .api-key-actions {
+.common-table.table .api-key-actions {
     display: inline-flex;
     gap: 8px;
     margin-top: 0px;
 }
 
-.manage-api-keys-form .api-key-actions .btn-link {
+.common-table.table .api-key-actions .btn-link {
     padding: 4px;
     color: var(--primary-purple);
     text-decoration: none;
 }
 
-.manage-api-keys-form .api-key-actions .btn-link:hover {
+.common-table.table .api-key-actions .btn-link:hover {
     color: var(--primary-purple-light);
     transform: scale(1.1);
 }
 
-.manage-api-keys-form .api-key-actions .btn-link.active {
+.common-table.table .api-key-actions .btn-link.active {
     color: var(--danger-red);
 }
 
 /* Badge Styling */
-.manage-api-keys-form .badge {
+.common-table.table .badge {
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 12px;
@@ -975,26 +989,26 @@ body.api-panel-open {
 }
 
 /* Button Styling */
-.manage-api-keys-form .btn-sm {
+.common-table.table .btn-sm {
     padding: 6px 12px;
     font-size: 12px;
     border-radius: 6px;
     border: 0;
 }
 
-.manage-api-keys-form .manage-roles-btn{
+.common-table.table .manage-roles-btn{
     background-color: #f2eefa;
     color: #754FC7;
 }
 
-.manage-api-keys-form .btn-danger{
+.common-table.table .btn-danger{
     background-color: #fdebeb;
     color: #E83434;
     align-items: center;
     display: inline-flex;
 }
 
-.manage-api-keys-form .btn-danger svg{
+.common-table.table .btn-danger svg{
     margin-left: 5px;
 }
 
@@ -1232,11 +1246,11 @@ body.api-panel-open {
 
 
 @media (max-width: 1580px) {
-  .manage-api-keys-form.table tbody td, .manage-api-keys-form.table thead th{
+  .common-table.table tbody td, .common-table.table thead th{
     font-size: 12px;
   }
 
-  .manage-api-keys-form.table tbody td svg{
+  .common-table.table tbody td svg{
     width: 16px;
     height: auto;
   }
@@ -1433,16 +1447,10 @@ body.api-panel-open {
 }
 
 .manage-modal-config .model-access-btn {
-    background: #fff;
-    color: var(--primary-purple);
-    border: 1px solid var(--primary-purple);
     padding: 8px 16px;
     border-radius: 8px;
     font-size: 14px;
     font-weight: 500;
-    cursor: pointer;
-    box-shadow: none;
-    transition: all 0.3s ease;
     margin-left: 10px;
 }
 
@@ -1524,24 +1532,12 @@ body.api-panel-open {
 }
 
 .model-access-section .add-key-btn {
-    background: var(--primary-purple);
-    color: var(--white);
-    border: none;
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 12px;
     font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
 }
 
-.model-access-section .add-key-btn:hover {
-    background: var(--primary-purple-light);
-    transform: translateY(-1px);
-}
 
 /* Access Keys Table */
 .model-access-section .access-keys-table {
@@ -1856,6 +1852,163 @@ font-size: 14px;
 		right: -100%;
 	}
 }
+
+/* Delete Confirmation Modal Styles */
+.delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+}
+
+.delete-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    display: none;
+}
+
+.delete-modal.show {
+    display: block;
+}
+
+.delete-modal-content {
+    position: relative;
+}
+
+.delete-modal-close {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+.delete-modal-close:hover {
+    background: #f3f4f6;
+    transform: scale(1.1);
+}
+
+.delete-modal-close svg {
+    width: 18px;
+    height: 18px;
+    color: #6b7280;
+}
+
+.delete-modal-icon {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.delete-modal-message {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.delete-modal-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.delete-modal-btn {
+    padding: 8px 30px;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .delete-modal {
+        padding: 32px 24px;
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+    
+    .delete-modal-close {
+        top: -20px;
+        right: -20px;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .delete-modal-title {
+        font-size: 24px;
+    }
+    
+    .delete-modal-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .delete-modal-btn {
+        width: 100%;
+    }
+}
+
+
+
+
+/* ============ Manege pipeline page ============ */
+
+
+.common-table td, .common-table th {
+    white-space: nowrap;
+  }
+
+  .manage-pipeline-table td:nth-child(4), .manage-pipeline-table th:nth-child(4) {
+    width: 100px;
+    text-align: center;
+  }
+
+  .manage-pipeline-table td:nth-child(5), .manage-pipeline-table th:nth-child(5) {
+    width: 100px;
+    text-align: center;
+  }
+
+  .manage-pipeline-table td:nth-child(2), .manage-pipeline-table th:nth-child(2) {
+    width: 300px;
+    word-break: break-all;
+  }
+
+  .manage-pipeline-table td:first-child, .manage-pipeline-table th:first-child {
+    width: 120px;
+    word-break: break-all;
+    max-width: 200px;
+  }
 
 
 
