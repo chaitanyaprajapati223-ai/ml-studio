@@ -1923,6 +1923,8 @@ font-size: 14px;
     justify-content: center;
 }
 
+
+
 .delete-modal-title {
     font-size: 28px;
     font-weight: 700;
@@ -1982,7 +1984,7 @@ font-size: 14px;
 
 
 
-/* ============ Manege pipeline page ============ */
+/* ============ Manage pipeline page ============ */
 
 
 .common-table td, .common-table th {
@@ -2011,8 +2013,447 @@ font-size: 14px;
   }
 
 
+  .nav.manager-pipeline-tab{
+     border-radius: 8px;
+     padding: 4px;
+     background-color: #fff;
+     
+  }
+  .manager-pipeline-tab .common-btn{
+    background-color: transparent;
+    color: #6A7893;
+    border: 0;
+    box-shadow: none;
+    text-decoration: none;  
+  }
+  .manager-pipeline-tab .common-btn.active{
+     background-color: var(--primary-purple);
+     color: #fff;
+  }
+
+  .common-table td .delete-key svg{
+     color: #E83434;
+  }
+
+
+  .common-table td .active-status{
+    color: #158723;
+    background-color: #edf6ee;
+    border-radius: 5px;
+    padding: 8px 17px;
+
+ }
+
+ .common-table td .deactive-status{
+    color: #E83434;
+    background-color: #feefef;
+    border-radius: 5px;
+    padding: 8px 17px;
+
+ }
+
+
+ .common-table td .date{
+width: 72px;
+text-align: center;
+
+ }
+
+
+ .pagination .page-link{
+    border-radius: 8px !important;
+    margin: 0 5px !important;
+    border: 1px solid #EDEEF2;
+    color: #000;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    box-shadow: none;
+ }
+
+
+ .pagination .page-link.active{
+   background-color: var(--primary-purple);
+   color: #fff;
+   border: 1px solid transparent;
+}
+.pagination .page-link.active svg path{
+   fill: #fff;
+ }
+.pagination .page-link svg path{
+  fill: var(--primary-purple);
+}
+
+
+
+/* ============ Pipeline Details Slide Panel ============ */
 
 
 
 
+.pipeline-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+    z-index: 1040;
+}
 
+
+
+
+.process-bar-table .pm-btn-view {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: none;
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+
+.process-bar-table .pm-btn-danger {
+  background: #ffe5e5;
+  border-color: #ffb3b3;
+  color: #d90429;
+}
+
+/* Process Manager Cards and Right Panel */
+.pm-card {
+  background: #fff;
+  border: 1px solid var(--border-grey);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(16,24,40,0.06);
+}
+
+.pm-card-header {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px 16px 8px 16px;
+}
+
+.pm-selected-user {
+  background: #efe7ff;
+  color: var(--primary-purple);
+  font-weight: 700;
+  margin: 0 16px 12px 16px;
+  padding: 10px 14px;
+}
+
+.process-bar-table td .pm-kill {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+  background: #ffecec;
+  color: #d90429;
+  border: 1px solid #ffd0d0;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.pipeline-panel-overlay.pipeline-panel-overlay-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pipeline-panel {
+    position: fixed;
+    top: 0;
+    right: -700px;
+    width: 700px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -6px 0 24px rgba(16, 24, 40, 0.12);
+    border-left: 1px solid var(--border-color);
+    transition: right 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.pipeline-panel.pipeline-panel-open {
+    right: 0;
+}
+
+.pipeline-panel .pipeline-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pipeline-panel .pipeline-panel-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.pipeline-panel .pipeline-panel-close {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.pipeline-panel .pipeline-panel-close:hover {
+    background: var(--light-bg);
+    color: var(--text-dark);
+}
+
+.pipeline-panel .pipeline-panel-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.pipeline-panel .pipeline-panel-body {
+    margin: 0px 16px 24px 16px;
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding-top: 16px;
+}
+
+.pipeline-info {
+    background: #efe7ff;
+    font-weight: 600;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.pipeline-info-wrapper
+.copy-payload-btn {
+    margin-bottom: 25px;
+    
+}
+
+.pipeline-info .pipeline-user {
+    font-weight: 700;
+    color: var(--primary-purple);
+    margin-bottom: 3px;
+    font-size: 24px;
+}
+
+.pipeline-info .pipeline-id {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pipeline-details-grid {
+    background: var(--white);
+    margin-bottom: 20px;
+    grid-template-columns: repeat(3, 1fr);
+grid-template-rows: auto auto;
+display: grid;
+gap:20px;
+}
+
+.pipeline-details-grid .detail-item {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+    border-radius:15px;
+    border: 1px solid #CED1DF;
+    grid-column: span 1;
+}
+
+.pipeline-details-grid .detail-item:first-child{
+    grid-column: span 2;
+}
+
+.pipeline-details-grid .detail-item:nth-child(4n){
+    width: 320px;
+}
+
+
+
+
+.pipeline-details-grid .detail-item label {
+    font-weight: 600;
+    color: #46536E;
+    font-size: 14px;
+}
+
+.pipeline-details-grid .detail-item span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pipeline-payload {
+    border: 1px solid #CED1DF;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    overflow: auto;
+    padding: 15px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.pipeline-payload .payload-content{
+   background-color: #272822;
+   border-radius: 10px;
+   height: 100%;
+   width: 100%;
+   overflow: auto;
+}
+
+
+
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.pipeline-panel-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    background: var(--white);
+}
+
+.pipeline-panel-actions .copy-payload-btn {
+
+    padding: 12px 20px;
+    border-radius: 8px;
+ 
+}
+
+
+
+.pipeline-panel-actions .copy-payload-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+
+.pipeline-panel .pipeline-panel-header {
+    background: linear-gradient(to right, #f8f9fa, #ffffff);
+}
+
+.pipeline-info .pipeline-user {
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+.pipeline-details-grid {
+    background: linear-gradient(to bottom, #ffffff, #fafbfc);
+}
+
+
+
+@media (max-width: 1580px) {
+    .pipeline-info .pipeline-user{
+       font-size: 20px;
+     }
+    .pipeline-info{
+       margin-bottom: 15px;
+    }
+    .pipeline-details-grid{
+        gap: 10px;
+     }
+     .pipeline-details-grid .detail-item {
+        padding: 6px 10px;
+     }
+     .pipeline-details-grid .detail-item span{
+        font-size: 14px;
+     }
+     .common-btn{
+        font-size: 15px;
+     }
+     .manager-pipeline-tab .common-btn{
+        padding: 8px 15px 6px;
+     }
+
+     
+
+}   
+@media (max-width: 768px) {
+    .pipeline-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .pipeline-panel-body {
+        margin: 0px 12px 20px 12px;
+    }
+    
+    .pipeline-details-grid .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+   
+}
+
+
+
+
+/* ============ Change password page ============ */
+
+.change-password-container{
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+ 
+  .change-password-container .common-btn{
+     min-width: 180px;
+   }
+ 
+  .change-password-container .card-body{
+     padding: 40px 110px;
+   }
+ 
+ 
+   
+ 
+   @media (max-width: 1580px) {
+ 
+     .delete-modal-icon img {
+        max-width: 150px;
+        height: auto;
+     }  
+     
+  .change-password-container .card-body{
+     padding: 30px 70px;
+   }
+   .change-password-container{
+     max-width: 600px;
+ }
+   
+ }

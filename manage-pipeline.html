@@ -157,7 +157,7 @@
     <main class="admin-main">
       <div class="admin-main-stack d-flex flex-column">
         <!-- Toggle Menu Button -->
-        <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center justify-content-between mb-3">
           <button class="sidebar-toggle d-lg-none" id="sidebarToggle" type="button" aria-label="Toggle Sidebar">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -166,19 +166,232 @@
           <h1 class="h3 h3-md fw-bold mb-2">Manage Pipeline</h1>
           <ul class="nav manager-pipeline-tab">
             <li class="nav-item">
-              <a class="nav-link" href="#">Pipeline Cleanup</a>
+              <a id="tabProcessManager" class="nav-link common-btn" href="#">Process Manager</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
+              <a id="tabPipelineCleanup" class="nav-link common-btn active" aria-current="page" href="#">Pipeline Cleanup</a>
             </li>
           </ul>
         </div>
 
         <!-- Admin Permissions -->
-        <section class="card h-100 ">
-          <div class="card-body p-xxl-4 p-3">
-            <!-- API Keys Table -->
-            <div class="table-responsive">
+        
+          
+            <!-- Process Manager View -->
+            <div id="processManagerSection" style="display: none;">
+              <!-- Left: Running Pipelines -->
+              <section class="card h-100" style="background-color: transparent;">
+                <div class="row g-3">
+              <div class="col-lg-7">
+                <div class="card-body p-0">
+                <div class="pm-card">
+                  <div class="pm-card-header">Running Pipelines</div>
+                  <div class="table-responsive">
+                    <table class="common-table process-bar-table table table-hover" id="pmRunningTable">
+                      <thead>
+                        <tr>
+                          <th>Username</th>
+                          <th>Pipeline ID</th>
+                          <th>No. of Jobs</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>divesh</td>
+                          <td>02b72acd-5dea-494a-9078-ad6b8546942f</td>
+                          <td>05</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>prakash</td>
+                          <td>02d8913d-f0fd-4421-8249-af3d83d8955</td>
+                          <td>02</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>brij</td>
+                          <td>19777c6e-e6fb-4940-a265-45eba8b31cde</td>
+                          <td>04</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>dhaval</td>
+                          <td>25cf00f1-c82a-4ad4-b2c9-09379568d60a</td>
+                          <td>07</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>sankar</td>
+                          <td>19777c6-e6fb-4940-a265-45eba83b1cde</td>
+                          <td>03</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>chirag</td>
+                          <td>02b72acd-5dea-494a-9078-ad6b8546942f</td>
+                          <td>06</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>mahesh</td>
+                          <td>2de00b76-5ac2-4a7e-8e5d-0bb2ab138152</td>
+                          <td>01</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>rajesh</td>
+                          <td>4e194903-0c9a-46a1-975-1ce7ec587830</td>
+                          <td>04</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>kamlesh</td>
+                          <td>53d60d84-f1bc-4963-97a7-8104d81aaad8</td>
+                          <td>09</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>jayesh</td>
+                          <td>56524bf5-d1a2-44e4-a209-d41e27099d9e</td>
+                          <td>10</td>
+                          <td>
+                            <button class="pm-btn-view common-btn white-btn" data-user="dhaval">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+                              </svg>
+                              View Details</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <nav aria-label="Page navigation">
+                      <ul class="pagination d-flex justify-content-center mt-5">
+                        <li class="page-item">
+                          <a class="page-link active" href="#" aria-label="Previous">
+                            <span aria-hidden="true">
+                              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.12133 8.99857L11.8336 5.28624L10.773 4.22559L5.99995 8.99857L10.773 13.7715L11.8336 12.7108L8.12133 8.99857Z" fill="#754FC7"/>
+                              </svg>                          
+                            </span>
+                          </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">
+                              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.87867 8.99857L6.16638 5.28624L7.22704 4.22559L12 8.99857L7.22704 13.7715L6.16638 12.7108L9.87867 8.99857Z" fill="#754FC7"/>
+                                </svg>
+                                                          
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <!-- Right: Pipeline Jobs -->
+              <div class="col-lg-5">
+                <div class="card-body p-0">
+                <div class="pm-card">
+                  <div class="pm-card-header">Pipeline Jobs</div>
+                  <div class="pm-selected-user" id="pmSelectedUser">divesh</div>
+                  <div class="table-responsive">
+                    <table class="common-table process-bar-table table" id="pmJobsTable">
+                      <thead>
+                        <tr>
+                          <th>Job Type</th>
+                          <th>Function</th>
+                          <th>Worker ID</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="pmJobsBody">
+                        <!-- dynamically filled -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+              </section>
+            </div>
+
+            <!-- Pipeline Cleanup View -->
+            <div id="pipelineCleanupSection" class="table-responsive">
+              <section class="card h-100 ">
+              <div class="card-body p-0">
               <table class="common-table table manage-pipeline-table table-hover">
                 <thead>
                   <tr>
@@ -191,151 +404,387 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>prakash</td>
-                    <td>
-                      <span class="api-key-visible">5bbf5650-6e60-4571-b5db-4dee65d90193</span>
-                    </td>
-                    <td>10/27/2025</td>
-                    <td><span class="active">Active</span></td>
-
+                    <td>divesh</td>
+                    <td><span class="api-key-visible">02b72zcd-5dea-494e-9078-ad6b8546942f</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
                     <td>
                       <div class="api-key-actions">
-                        <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="divesh" data-pipeline-id="02b72zcd-5dea-494e-9078-ad6b8546942f">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </button>
-                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                           </svg>
                         </button>
                       </div>
                     </td>
-                    
-                    
                   </tr>
+              
                   <tr>
                     <td>prakash</td>
-                    <td>
-                      <span class="api-key-visible">5bbf5650-6e60-4571-b5db-4dee65d90193</span>
-                    </td>
-                    <td>10/27/2025</td>
-                    <td><span class="active">Active</span></td>
-
+                    <td><span class="api-key-visible">02d9913d-f01d-4421-8249-af3dc8f89955</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
                     <td>
                       <div class="api-key-actions">
-                        <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="prakash" data-pipeline-id="02d9913d-f01d-4421-8249-af3dc8f89955">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </button>
-                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                           </svg>
                         </button>
                       </div>
                     </td>
-                    
-                    
                   </tr>
+              
                   <tr>
-                    <td>prakash</td>
-                    <td>
-                      <span class="api-key-visible">5bbf5650-6e60-4571-b5db-4dee65d90193</span>
-                    </td>
-                    <td>10/27/2025</td>
-                    <td><span class="active">Active</span></td>
-
+                    <td>brij</td>
+                    <td><span class="api-key-visible">19777c6e-e6f9-4940-a265-45eba8b31cde</span></td>
+                    <td><div class="date">20-08-2025</div></td>
+                    <td><span class="deactive-status">Deactive</span></td>
                     <td>
                       <div class="api-key-actions">
-                        <button class="btn btn-sm btn-link toggle-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="brij" data-pipeline-id="19777c6e-e6f9-4940-a265-45eba8b31cde">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </button>
-                        <button class="btn btn-sm btn-link copy-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                           </svg>
                         </button>
                       </div>
                     </td>
-                    
-                    
+                  </tr>
+              
+                  <tr>
+                    <td>dhaval</td>
+                    <td><span class="api-key-visible">19777c6e-e6f9-4940-a265-45eba8b31cde</span></td>
+                    <td><div class="date">09-09-2025</div></td>
+                    <td><span class="deactive-status">Deactive</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="dhaval" data-pipeline-id="19777c6e-e6f9-4940-a265-45eba8b31cde">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+              
+                  <tr>
+                    <td>sankar</td>
+                    <td><span class="api-key-visible">25cf00f1-c82e-4ad4-b2c9-093795686d0a</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="sankar" data-pipeline-id="25cf00f1-c82e-4ad4-b2c9-093795686d0a">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+              
+                  <tr>
+                    <td>chirag</td>
+                    <td><span class="api-key-visible">2de00676-5cc2-4a7e-8e5d-0bb2ab13f152</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="chirag" data-pipeline-id="2de00676-5cc2-4a7e-8e5d-0bb2ab13f152">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+              
+                  <tr>
+                    <td>mahesh</td>
+                    <td><span class="api-key-visible">2de00676-5cc2-4a7e-8e5d-0bb2ab13f152</span></td>
+                    <td><div class="date">12-09-2025</div></td>
+                    <td><span class="deactive-status">Deactive</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="mahesh" data-pipeline-id="2de00676-5cc2-4a7e-8e5d-0bb2ab13f152">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+              
+                  <tr>
+                    <td>rajesh</td>
+                    <td><span class="api-key-visible">4e194903-0c9b-4a61-9775-1ce7ec587930</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="rajesh" data-pipeline-id="4e194903-0c9b-4a61-9775-1ce7ec587930">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+              
+                  <tr>
+                    <td>kamlesh</td>
+                    <td><span class="api-key-visible">53d60844-fbc4-4963-9767-8104bf6eaed8</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="kamlesh" data-pipeline-id="53d60844-fbc4-4963-9767-8104bf6eaed8">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  <tr>
+                    <td>jayesh</td>
+                    <td><span class="api-key-visible">7f8a9b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4</span></td>
+                    <td><div class="date">N/A</div></td>
+                    <td><span class="active-status">Active</span></td>
+                    <td>
+                      <div class="api-key-actions">
+                        <button class="btn btn-sm btn-link view-pipeline" data-username="jayesh" data-pipeline-id="7f8a9b2c-3d4e-5f6g-7h8i-9j0k1l2m3n4">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </button>
+                        <button class="btn btn-sm btn-link delete-key" onclick="deleteConfig(this)" data-key="5bbf5650-6e60-4571-b5db-4dee65d90193">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
+
+              <nav aria-label="Page navigation">
+                <ul class="pagination d-flex justify-content-center mt-5">
+                  <li class="page-item">
+                    <a class="page-link active" href="#" aria-label="Previous">
+                      <span aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M8.12133 8.99857L11.8336 5.28624L10.773 4.22559L5.99995 8.99857L10.773 13.7715L11.8336 12.7108L8.12133 8.99857Z" fill="#754FC7"/>
+                        </svg>                          
+                      </span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M9.87867 8.99857L6.16638 5.28624L7.22704 4.22559L12 8.99857L7.22704 13.7715L6.16638 12.7108L9.87867 8.99857Z" fill="#754FC7"/>
+                          </svg>
+                                                    
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
+             </section>
+            </div>
+                  
+              
+            
 
             
           </div>
-        </section>
+       
 
       </div>
     </main>
   </div>
 
-  <!-- Generate API Key Slide Panel -->
-  <div class="api-panel-overlay" id="apiPanelOverlay"></div>
-  <div class="api-panel gen-api-penel" id="apiPanel">
-    <div class="api-panel-header">
-      <h3 class="api-panel-title">Generate API Key</h3>
-      <button class="api-panel-close" id="apiPanelClose" type="button" aria-label="Close Panel">
+  <!-- Pipeline Details Slide Panel -->
+  <div class="pipeline-panel-overlay" id="pipelinePanelOverlay"></div>
+  <div class="pipeline-panel" id="pipelinePanel">
+    <div class="pipeline-panel-header">
+      <h3 class="pipeline-panel-title">Pipeline Details</h3>
+      <button class="pipeline-panel-close" id="pipelinePanelClose" type="button" aria-label="Close Panel">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
     </div>
     
-    <div class="api-panel-body">
-      <form class="api-form">
-        <div class="form-input-wrapper">
-        <div class="form-group">
-          <label for="username" class="form-label">Username</label>
-          <input type="text" class="form-control" id="username" placeholder="Enter Username" required>
+    <div class="pipeline-panel-body">
+      <div class="pipeline-info">
+        <div class="pipeline-user">
+          <span id="pipelineUsername"></span>
         </div>
-        
-        <div class="form-group">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+        <div class="pipeline-id">
+          <span id="pipelineId"></span>
         </div>
-        
-        <div class="form-group">
-          <label class="form-label">User Roles</label>
-          <div class="role-dropdowns">
-            <select class="form-control" id="role1" required>
-              <option value="">Select a role</option>
-              <option value="contributor">Contributor</option>
-              <option value="pipeline_manager">Pipeline_Manager</option>
-              <option value="model_training">Model_Training</option>
-            </select>
-          
+      </div>
+      <div class="pipeline-info-wrapper">
+      <div class="pipeline-details-grid">
+        <div class="detail-item">
+          <label>Job ID</label>
+          <span id="jobId">76baada7-7291-487a-9d59-b5dd5abd09ec</span>
+        </div>
+        <div class="detail-item">
+          <label>Job Type</label>
+          <span id="jobType">model</span>
+        </div>
+        <div class="detail-item">
+          <label>Job Function</label>
+          <span id="jobFunction">autom</span>
+        </div>
+        <div class="detail-item">
+          <label>Created At</label>
+          <span id="createdAt">2025-08-12T07:32:20.383388+00:00</span>
+        </div>
+        <div class="detail-item">
+          <label>BigData</label>
+          <span id="bigData">No</span>
+        </div>
+      </div>
+      
+      <div class="pipeline-payload">
+        <div class="payload-content">
+           
+        </div>
+      </div>
+      
+      <div class="pipeline-panel-actions">
+        <button type="button" class="copy-payload-btn common-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+          Copy Payload
+        </button>
+      </div>
+      </div>
+      <div class="pipeline-info-wrapper">
+        <div class="pipeline-details-grid">
+          <div class="detail-item">
+            <label>Job ID</label>
+            <span id="jobId">76baada7-7291-487a-9d59-b5dd5abd09ec</span>
+          </div>
+          <div class="detail-item">
+            <label>Job Type</label>
+            <span id="jobType">model</span>
+          </div>
+          <div class="detail-item">
+            <label>Job Function</label>
+            <span id="jobFunction">autom</span>
+          </div>
+          <div class="detail-item">
+            <label>Created At</label>
+            <span id="createdAt">2025-08-12T07:32:20.383388+00:00</span>
+          </div>
+          <div class="detail-item">
+            <label>BigData</label>
+            <span id="bigData">No</span>
           </div>
         </div>
         
-        <div class="form-group">
-          <label for="expiry" class="form-label">Expiry</label>
-          <select class="form-control" id="expiry" required>
-            <option value="">Select expiry</option>
-            <option value="7">7 days</option>
-            <option value="30">30 days</option>
-            <option value="60">60 days</option>
-          </select>
+        <div class="pipeline-payload">
+          <div class="payload-content">
+             
+          </div>
+        </div>
+        
+        <div class="pipeline-panel-actions">
+          <button type="button" class="copy-payload-btn common-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+            Copy Payload
+          </button>
         </div>
         </div>
-        <div class="api-panel-actions">
-          <button type="submit" class="btn btn-primary">Generate API Key</button>
-          <button type="button" class="btn btn-secondary" id="resetForm">Reset</button>
-        </div>
-      </form>
     </div>
   </div>
 
@@ -409,6 +858,31 @@
       </div>
     </div>
   </div>
+
+
+    <!-- Delete Confirmation Modal -->
+    <div class="delete-modal-overlay" id="deleteModalOverlay"></div>
+    <div class="delete-modal" id="deleteModal">
+        <div class="delete-modal-content">
+            <button class="delete-modal-close" onclick="closeDeleteModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <div class="delete-modal-icon">
+                <img src="images/delete-thumb.svg" width="267" height="220" alt="delete">
+            </div>
+            
+            <h2 class="delete-modal-title">Delete Pipeline ID?</h2>
+            <p class="delete-modal-message">Are you sure want to delete Pipeline Id with all details?</p>
+            
+            <div class="delete-modal-actions">
+                <button class="delete-modal-btn common-btn" onclick="closeDeleteModal()">No</button>
+                <button class="delete-modal-btn common-btn white-btn" onclick="confirmDelete()">Yes</button>
+            </div>
+        </div>
+    </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -636,6 +1110,273 @@
       });
     });
   </script>
+
+
+<script>
+  // Delete configuration
+  function deleteConfig(deleteBtn) {
+    openDeleteModal();
+  }
+
+  // Open delete confirmation modal
+  function openDeleteModal() {
+    const overlay = document.getElementById('deleteModalOverlay');
+    const modal = document.getElementById('deleteModal');
+    
+    overlay.style.display = 'block';
+    modal.classList.add('show');
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close delete confirmation modal
+  function closeDeleteModal() {
+    const overlay = document.getElementById('deleteModalOverlay');
+    const modal = document.getElementById('deleteModal');
+    
+    overlay.style.display = 'none';
+    modal.classList.remove('show');
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+  }
+
+  // Confirm delete action
+  function confirmDelete() {
+    // Here you would implement the actual delete logic
+    console.log('Delete confirmed');
+    
+    // Close the modal
+    closeDeleteModal();
+    
+    // Show success message or redirect
+    alert('Model deleted successfully!');
+  }
+
+  // Event listeners for delete modal
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tabs: Process Manager vs Pipeline Cleanup
+    const tabProcessManager = document.getElementById('tabProcessManager');
+    const tabPipelineCleanup = document.getElementById('tabPipelineCleanup');
+    const processManagerSection = document.getElementById('processManagerSection');
+    const pipelineCleanupSection = document.getElementById('pipelineCleanupSection');
+
+    function activateTab(target) {
+      if (!tabProcessManager || !tabPipelineCleanup) return;
+      tabProcessManager.classList.remove('active');
+      tabPipelineCleanup.classList.remove('active');
+      if (target === 'process') {
+        tabProcessManager.classList.add('active');
+        processManagerSection.style.display = 'block';
+        pipelineCleanupSection.style.display = 'none';
+      } else {
+        tabPipelineCleanup.classList.add('active');
+        pipelineCleanupSection.style.display = 'block';
+        processManagerSection.style.display = 'none';
+      }
+    }
+
+    if (tabProcessManager) {
+      tabProcessManager.addEventListener('click', function(e){ e.preventDefault(); activateTab('process'); });
+    }
+    if (tabPipelineCleanup) {
+      tabPipelineCleanup.addEventListener('click', function(e){ e.preventDefault(); activateTab('cleanup'); });
+    }
+
+    // Default to Pipeline Cleanup (already visible)
+    activateTab('cleanup');
+
+    // --- Process Manager demo data and interactions ---
+    const jobsByUser = {
+      divesh: [
+        { type: 'splitting', func: 'split', worker: '02bcea33388a43db9a41acb42c30b0bd' },
+        { type: 'model', func: 'autom', worker: '460f689b4174a368a11e94b657db0fa2' },
+        { type: 'preprocessing', func: 'encode', worker: '8325ca4662af412981713c5d7c6ff99f' },
+        { type: 'preprocessing', func: 'select', worker: '9bd6bffa52eb45bf95a8ef02e444c8f5' },
+        { type: 'preprocessing', func: 'scale', worker: '4cf9e040e90e458f89ef50871e44191a' }
+      ],
+      prakash: [
+        { type: 'model', func: 'autom', worker: 'a4f6d20b4174b368a1194b657db0fa2' }
+      ],
+      brij: [ { type: 'splitting', func: 'split', worker: 'c21caa3838a43db9a41acb42c30b0bd' } ],
+      dhaval: [ { type: 'preprocessing', func: 'encode', worker: '9a25ca4662a412981713c5d7c6ff9f' } ],
+      sankar: [ { type: 'preprocessing', func: 'select', worker: '2bd6bffa52eb45bf95a8ef02e444c8f5' } ],
+      chirag: [ { type: 'preprocessing', func: 'scale', worker: 'acf9e040e90e458f89ef50871e44191a' } ],
+      mahesh: [ { type: 'model', func: 'autom', worker: '1c0f689b4174a368a11e94b657db0fa2' } ],
+      rajesh: [ { type: 'model', func: 'autom', worker: '7f0f689b4174a368a11e94b657db0fa2' } ],
+      kamlesh: [ { type: 'preprocessing', func: 'encode', worker: 'bb25ca4662af12981713c5d7c6ff9f' } ],
+      jayesh: [ { type: 'splitting', func: 'split', worker: 'd2bcea33388a43db9a41acb42c30b0bd' } ]
+    };
+
+    function renderJobs(user){
+      const body = document.getElementById('pmJobsBody');
+      const selectedUser = document.getElementById('pmSelectedUser');
+      if (!body || !selectedUser) return;
+      selectedUser.textContent = user;
+      const rows = (jobsByUser[user] || []).map(j => `
+        <tr>
+          <td>${j.type}</td>
+          <td>${j.func}</td>
+          <td style="font-family: monospace;">${j.worker}</td>
+          <td><button class="pm-kill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          </svg>Kill Job</button></td>
+        </tr>
+      `).join('');
+      body.innerHTML = rows || '<tr><td colspan="4" class="text-center">No jobs</td></tr>';
+    }
+
+    // default jobs for first user when switching to Process Manager
+    if (tabProcessManager){
+      tabProcessManager.addEventListener('click', function(){ renderJobs('divesh'); });
+    }
+
+    // attach to left table buttons
+    document.querySelectorAll('.pm-view-details').forEach(btn => {
+      btn.addEventListener('click', function(){
+        const user = this.getAttribute('data-user');
+        activateTab('process');
+        renderJobs(user);
+      });
+    });
+
+    const overlay = document.getElementById('deleteModalOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', closeDeleteModal);
+    }
+    
+    // Close delete modal on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeDeleteModal();
+      }
+    });
+  });
+</script>
+
+<script>
+  // Pipeline Details Panel Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const pipelinePanelOverlay = document.getElementById('pipelinePanelOverlay');
+    const pipelinePanel = document.getElementById('pipelinePanel');
+    const pipelinePanelClose = document.getElementById('pipelinePanelClose');
+    const viewPipelineBtns = document.querySelectorAll('.view-pipeline');
+    
+    // Open pipeline panel
+    function openPipelinePanel(username, pipelineId) {
+      // Update panel content
+      document.getElementById('pipelineUsername').textContent = username;
+      document.getElementById('pipelineId').textContent = pipelineId;
+      
+      // Show overlay and panel
+      pipelinePanelOverlay.classList.add('pipeline-panel-overlay-active');
+      pipelinePanel.classList.add('pipeline-panel-open');
+      
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Close pipeline panel
+    function closePipelinePanel() {
+      pipelinePanelOverlay.classList.remove('pipeline-panel-overlay-active');
+      pipelinePanel.classList.remove('pipeline-panel-open');
+      
+      // Restore body scroll
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Event listeners for view pipeline buttons
+    viewPipelineBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const username = this.getAttribute('data-username');
+        const pipelineId = this.getAttribute('data-pipeline-id');
+        openPipelinePanel(username, pipelineId);
+      });
+    });
+    
+    // Close panel when clicking close button
+    if (pipelinePanelClose) {
+      pipelinePanelClose.addEventListener('click', closePipelinePanel);
+    }
+    
+    // Close panel when clicking overlay
+    if (pipelinePanelOverlay) {
+      pipelinePanelOverlay.addEventListener('click', closePipelinePanel);
+    }
+    
+    // Close panel on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePipelinePanel();
+      }
+    });
+    
+    // Payload section toggle functionality
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    sectionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        this.classList.toggle('expanded');
+        const content = this.nextElementSibling;
+        if (content.style.display === 'none') {
+          content.style.display = 'block';
+        } else {
+          content.style.display = 'none';
+        }
+      });
+    });
+    
+    // Copy payload functionality
+    const copyPayloadBtn = document.querySelector('.copy-payload-btn');
+    if (copyPayloadBtn) {
+      copyPayloadBtn.addEventListener('click', function() {
+        // Create a sample payload to copy
+        const payload = {
+          method: "auto",
+          target_column: "EngagementLevel",
+          train_art_id: "96728891-77b6-48fa-be3d-573810e0b9e8",
+          test_art_id: "..."
+        };
+        
+        navigator.clipboard.writeText(JSON.stringify(payload, null, 2)).then(() => {
+          // Show success feedback
+          const originalText = this.innerHTML;
+          this.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Copied!
+          `;
+          setTimeout(() => {
+            this.innerHTML = originalText;
+          }, 1000);
+        });
+      });
+    }
+    
+    // Individual copy button functionality
+    const copyBtns = document.querySelectorAll('.copy-btn');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const value = this.previousElementSibling.textContent;
+        navigator.clipboard.writeText(value).then(() => {
+          // Show success feedback
+          const originalHTML = this.innerHTML;
+          this.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          `;
+          setTimeout(() => {
+            this.innerHTML = originalHTML;
+          }, 1000);
+        });
+      });
+    });
+  });
+</script>
 </body>
 
 </html>
