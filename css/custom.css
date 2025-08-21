@@ -2457,3 +2457,109 @@ gap:20px;
  }
    
  }
+
+
+
+
+
+ /* ============ manage modal page ============ */
+
+
+ .modal-logs .four-zero-four-thumb img{
+    max-width: 250px;
+    height: auto;
+ }
+ .deployed-models-table .btn{
+ border-radius: 5px;
+ }
+
+ .deployed-models-table .btn-outline-info{
+  color: #267A9E;
+  border: 1px solid #267A9E !important;
+ }
+ .deployed-models-table .btn-outline-info:hover{
+   background-color: #267A9E;
+   color: #fff;
+ }
+
+ .deployed-models-table .btn-outline-warning{
+    color: #ED8116;
+    border: 1px solid #ED8116 !important;
+   }
+   .deployed-models-table .btn-outline-warning:hover{
+     background-color: #ED8116;
+     color: #fff;
+   }
+
+   .deployed-models-table .btn-outline-primary{
+    color: #6D458B;
+    border: 1px solid #6D458B !important;
+   }
+   .deployed-models-table .btn-outline-primary:hover{
+     background-color: #6D458B;
+     color: #fff;
+   }
+
+   .deployed-models-table .btn-outline-danger{
+    color: #ED5564;
+    border: 1px solid #ED5564 !important;
+   }
+   .deployed-models-table .btn-outline-danger:hover{
+     background-color: #ED5564;
+     color: #fff;
+   }
+
+   .deployed-models-table .btn-outline-secondary{
+    color: #3E57D5;
+    border: 1px solid #3E57D5 !important;
+   }
+   .deployed-models-table .btn-outline-secondary:hover{
+     background-color: #3E57D5;
+     color: #fff;
+   }
+
+
+
+
+/* ============ Add Rule Configuration ============ */
+
+.rule-config .section-header{
+    background: #f5f2fb;
+    border: 1px solid var(--border-grey);
+    color: var(--primary-purple);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rule-config .section-header.main{
+    background: #fff;
+    border: 0;
+    border-bottom: 1px solid #CED1DF;
+    color: #0c0c0c;
+    border-radius: 12px 12px 0px 0px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rule-config .section-header.main .icon-btn.plus{
+   background-color: var(--primary-purple);
+}
+.rule-config .icon-btn{
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid #EDEEF2;
+    background: #fff;
+    color: var(--primary-purple);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+}
+.rule-config .icon-btn:hover{ background: #efe7ff; }
+.rule-config .card{ border:1px solid var(--border-grey); border-radius: 12px; }
+.rule-config .form-control, .rule-config .form-select{ border:1px solid var(--border-grey); box-shadow: none; }
