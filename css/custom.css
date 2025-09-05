@@ -2744,6 +2744,70 @@ nav.sidebar-nav{
     font-size: 15px;
 }
 
+.common-table.table .delete-bg-icon{
+    background-color: #feefef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+
+}
+
+.common-table.table .play-bg-icon{
+    background-color: #f2eefa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+}
+
+.common-table.table .delete-bg-icon svg{
+    color: #E83434;
+}
+
+.common-table.table .btn-sm.btn-outline-success{
+    border: 1px solid #158723;
+    color: #158723;
+}
+
+.common-table.table .btn-sm.btn-outline-danger{
+    border: 1px solid #E83434;
+    color: #E83434;
+}
+.common-table.table .btn-sm.btn-outline-danger:hover, .common-table.table .btn-sm.btn-outline-danger:focus{
+    background-color: 1px solid #E83434;
+    color: #fff;
+}
+
+.common-table.table .btn-sm.btn-outline-success:hover, .common-table.table .btn-sm.btn-outline-success:focus{
+    background-color: #158723;
+    color: #fff;
+}
+
+.common-table.table .btn-sm.btn-success.bg{
+  background-color: #158723;
+}
+.common-table.table .btn-sm.btn-success.bg svg{
+    margin-right: 3px;
+}
+.common-table.table .btn-sm.btn-danger.bg svg{
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+.common-table.table .btn-sm.btn-danger.bg{
+  background-color: #E83434;
+  color: #fff;
+}
+
+.common-table.table .btn-sm.btn-request{
+    border: 1px solid #5A657B;
+    color: #5A657B;
+}
+.common-table.table .btn-sm.btn-request:hover, .common-table.table .btn-sm.btn-request:focus{
+    background-color: #5A657B;
+    color: #fff;
+}
 
 .user-pipeline-manager td:last-child, .user-pipeline-manager th:last-child {
     width: 180px;
